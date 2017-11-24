@@ -27,7 +27,7 @@
 	          <td>${sbean.stuid }</td>
 	          <td>${sbean.stuname }</td>
 	          <td>${sbean.sclass }</td>
-	          <td><input type="text" name="score" value=${sbean.score }></td>
+	          <td><input type="text" name="score" id="score" value=${sbean.score }></td>
 	        </tr>
 	 	 </c:forEach> 
 		</table>

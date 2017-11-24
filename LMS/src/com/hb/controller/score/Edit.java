@@ -21,7 +21,7 @@ public class Edit extends HttpServlet{
 		ScoreDao dao = new ScoreDao();
 		ArrayList<ScoreDto> dto;
 		try {
-			dto = dao.scoreView3(Integer.parseInt(req.getParameter("score")));
+			dto = (ArrayList<ScoreDto>)dao.update(Integer.parseInt(req.getParameter("score")));
 			req.setAttribute("bean", dto);
 			req.getRequestDispatcher("score.do").forward(req, resp);
 		} catch (NumberFormatException | SQLException e) {

@@ -18,7 +18,7 @@ public class ScoreEditController extends HttpServlet{
 protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 		throws ServletException, IOException {
 	 ScoreDao dao= new ScoreDao();
-		ArrayList<ScoreDto> slist= dao.scoreView2();
+		ArrayList<ScoreDto> slist= dao.scoreView();
 		req.setAttribute("slist", slist);
 		req.getRequestDispatcher("scoreedit.jsp").forward(req, resp);
 }

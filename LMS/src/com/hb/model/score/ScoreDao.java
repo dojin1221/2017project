@@ -15,9 +15,12 @@ public class ScoreDao {
 	ResultSet rs;
 	ArrayList<ScoreDto> slist;
 	ArrayList<ScoreDto> slist2;
+	ArrayList<ScoreDto> slist3;
+	
 	public ArrayList<ScoreDto> scoreView(){
 		String sql="select * from score";
 		conn=MyOracle.getConnection();
+		
 		try{
 			pstmt=conn.prepareStatement(sql);
 			rs=pstmt.executeQuery();
@@ -72,10 +75,10 @@ public class ScoreDao {
 				e.printStackTrace();
 			}
 		}
-		return slist;
+		return slist2;
 	}
 	
-	public ArrayList<ScoreDto> scoreView3(int score) throws SQLException{
+	public ArrayList<ScoreDto> update(int score) throws SQLException{
 		String sql="update score set score=?";
 	try{
 		pstmt=conn.prepareStatement(sql);
@@ -87,7 +90,6 @@ public class ScoreDao {
 			if(pstmt!=null)pstmt.close();
 			if(conn!=null)conn.close();
 		}
-	return slist2;
+	return slist3;
 	}	
 }
-
