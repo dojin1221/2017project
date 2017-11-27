@@ -13,7 +13,7 @@ import com.hb.model.index.IndexDao;
 import com.hb.model.index.IndexDto;
 import com.hb.model.roll.RollDao;
 import com.hb.model.roll.RollDto;
-@WebServlet("/rollmgr.do")
+@WebServlet(value="/rollmgr.do")
 public class RollController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)

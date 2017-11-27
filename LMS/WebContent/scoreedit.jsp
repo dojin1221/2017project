@@ -9,29 +9,30 @@
 </head>
 <body>
 	<h1>점수페이지</h1>
-	<form action="update.do" method="post">
 		<table border="1">
 		        <tr>
-		          <th>점수아이디</th>
-		          <th>과목</th>
-		          <th>학생아이디</th>
+		         <!--  <th>점수아이디</th>
+		          
+		          <th>학생아이디</th> -->
 		          <th>학생</th>
-		          <th>교실</th>
+		          <th>과목</th> 
 		          <th>점수</th>
+		         <!-- <th>교실</th>
+		           -->
 		        </tr>
 		        
 	     <c:forEach items="${slist }" var="sbean">   
 	        <tr>
-	          <td>${sbean.scoreid }</td>
+	         <!--  <td>${sbean.scoreid }</td>
+	          
+	          <td>${sbean.stuid }</td> -->
+	          <td><a href="scoredetail.do?idx=${sbean.scoreid }">${sbean.stuname }</a></td>
 	          <td>${sbean.subject }</td>
-	          <td>${sbean.stuid }</td>
-	          <td>${sbean.stuname }</td>
-	          <td>${sbean.sclass }</td>
+	           <td>${sbean.score }</td>
+	          <!--  <td>${sbean.sclass }</td>
 	          <td><input type="text" name="score" id="score" value=${sbean.score }></td>
-	        </tr>
+	        </tr> -->
 	 	 </c:forEach> 
 		</table>
-		<button>수정</button>
-		</form>
 </body>
 </html>

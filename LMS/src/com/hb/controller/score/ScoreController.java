@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.hb.model.score.ScoreDao;
 import com.hb.model.score.ScoreDto;
 
-@WebServlet("/score.do")
+@WebServlet(value="/scoreindex.do")
 public class ScoreController extends HttpServlet{
 	
 	@Override
@@ -20,8 +20,8 @@ public class ScoreController extends HttpServlet{
 			throws ServletException, IOException {
 		ScoreDao dao= new ScoreDao();
 		ArrayList<ScoreDto> slist= dao.scoreView();
-		req.setAttribute("slist", slist);
-		req.getRequestDispatcher("score.jsp").forward(req, resp);	
+		req.setAttribute("list", slist);
+		req.getRequestDispatcher("scoreindex.jsp").forward(req, resp);	
 	}
 }
 	

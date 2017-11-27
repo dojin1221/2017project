@@ -34,7 +34,7 @@
 		<a href="rollmgr.do">*출결 관리</a>
 	</div>
 	<div>
-		<a href="score.do">*성적 관리</a>
+		<a href="scoreindex.do">*성적 관리</a>
 	</div>
 	<div>
 		<a href="stu.do">*학생 관리</a>

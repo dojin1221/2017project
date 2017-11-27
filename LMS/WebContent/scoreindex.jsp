@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>점수페이지</h1>
-	<table border="1">
+<h1>성적관리INDEX</h1>
+<!-- 	<table border="1">
 		
 	        <tr>
 	          <th>점수아이디</th>
@@ -20,17 +20,20 @@
 	          <th>점수</th>
 	        </tr>
 	        
-     <c:forEach items="${slist }" var="sbean">   
+     <c:forEach items="${list }" var="bean">   
         <tr>
-          <td>${sbean.scoreid }</td>
-          <td>${sbean.subject }</td>
-          <td>${sbean.stuid }</td>
-          <td>${sbean.stuname }</td>
-          <td>${sbean.sclass }</td>
-          <td>${sbean.score }</td>
+          <td>${bean.scoreid }</td>
+          <td>${bean.subject }</td>
+          <td>${bean.stuid }</td>
+          <td>${bean.stuname }</td>
+          <td>${bean.sclass }</td>
+          <td>${bean.score }</td>
         </tr>
  	 </c:forEach> 
 	</table>
 	<a href="scoreedit.do">수정</a>
+	 -->
+	 <a href="scoreadd.do">성적 입력하기</a>
+	 <a href="scoreedit.do">성적 수정하기</a>
 </body>
 </html>

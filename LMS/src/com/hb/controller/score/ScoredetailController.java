@@ -11,15 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.hb.model.score.ScoreDao;
 import com.hb.model.score.ScoreDto;
-
-@WebServlet(value="/scoreedit.do")
-public class ScoreEditController extends HttpServlet{
- @Override
+@WebServlet(value="/scoredetail.do")
+public class ScoredetailController extends HttpServlet{
+@Override
 protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 		throws ServletException, IOException {
-	 ScoreDao dao= new ScoreDao();
-		ArrayList<ScoreDto> slist= dao.scoreView();
-		req.setAttribute("slist", slist);
-		req.getRequestDispatcher("scoreedit.jsp").forward(req, resp);
+		int idx= Integer.parseInt(req.getParameter("idx"));
+		
+		ScoreDao dao = new ScoreDao();
+		ArrayList<ScoreDto> slist = dao.selectOne(idx);
+		req.setAttribute("list", slist);
+		req.getRequestDispatcher("scoredetail.jsp").forward(req, resp);
+	
 }
+
 }
