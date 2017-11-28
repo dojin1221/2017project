@@ -5,7 +5,7 @@ import java.sql.Date;
 public class StuDto {
 	private int sId;
 	private String sName;
-	private Date birth;
+	private String birth;
 	private String phone;
 	private String email;
 	private String status;
@@ -31,11 +31,11 @@ public class StuDto {
 		this.sName = sName;
 	}
 
-	public Date getBirth() {
+	public String getBirth() {
 		return birth;
 	}
 
-	public void setBirth(Date birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
 

@@ -1,9 +1,14 @@
 package com.hb.model.index;
 
 public class IndexDto {
-	private int lecId;
+	
 	private String lecName;
-	private int sid;
+	private String team;
+	private int sid;	
+	private int hrid;
+	private int lecId;
+	private boolean logChk;
+	
 	public IndexDto() {
 	
 	}
@@ -25,6 +30,28 @@ public class IndexDto {
 	public void setSid(int sid) {
 		this.sid = sid;
 	}
+	public int getHrid() {
+		return hrid;
+	}
+	public void setHrid(int hrid) {
+		this.hrid = hrid;
+	}
+	public boolean isLogChk() {
+		return logChk;
+	}
+	public void setLogChk(boolean logChk) {
+		this.logChk = logChk;
+	}
+	public boolean getLogChk() {
+		return logChk;
+	}
+	public String getTeam() {
+		return team;
+	}
+	public void setTeam(String team) {
+		this.team = team;
+	}
+	
 	
 	
 }

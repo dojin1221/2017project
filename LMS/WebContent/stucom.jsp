@@ -11,9 +11,13 @@
 </style>
 </head>
 <body>
-<h2>학생관리</h2>
-	<h3><a href="stucom.do">수료한 학생</a></h3>
-		<table border="1">
+<h2>과거학생조회</h2>
+<form action="stucom.do">
+	<label>조회할 학생 이름을 입력하세요</label><br/>
+	<input type="text" name="sNmae" value="${bean.sName }">
+	<button>조회</button>
+</form>
+		<%-- <table border="1">
 			<tr>
 				<th>아이디</th>
 				<th>이름</th>
@@ -34,7 +38,7 @@
 			</tr>
 		</c:forEach>
 		</table>
-	
+	 --%>
 	
 </body>
 </html>

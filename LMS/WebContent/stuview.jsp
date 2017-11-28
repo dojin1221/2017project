@@ -11,28 +11,21 @@
 </style>
 </head>
 <body>
-<h2>학생관리</h2>
-	<h3><a href="stuview.do">수업중인 학생</a></h3>
-	<a href="stuadd.do">학생추가</a>
-	
+<h2>현재학생조회</h2>
 		<table border="1">
 			<tr>
 				<th>아이디</th>
 				<th>이름</th>
 				<th>생일</th>
-				<th>전화번호</th>
-				<th>학생이메일</th>
-				<th>반</th>
+				<th>상태</th>
 			</tr>
 		
 		<c:forEach items="${list }" var="bean">
 			<tr>
-				<td>${bean.sId }</td>
+				<td><a href="studetail.do?sId=${bean.sId }">${bean.sId }</a></td>
 				<td>${bean.sName }</td>
 				<td>${bean.birth }</td>
-				<td>${bean.phone }</td>
-				<td>${bean.email }</td>
-				<td>${bean.regclass }</td>
+				<td>${bean.status }</td>
 			</tr>
 		</c:forEach>
 		</table>
