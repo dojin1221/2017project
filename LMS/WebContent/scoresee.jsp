@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,8 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>성적관리INDEX</h1>
-<!-- 	<table border="1">
+	<table border="1">
 		
 	        <tr>
 	          <th>점수아이디</th>
@@ -31,10 +30,5 @@
         </tr>
  	 </c:forEach> 
 	</table>
-	<a href="scoreedit.do">수정</a>
-	 -->
-	  <a href="scoresee.do">성적 조회하기</a>
-	 <a href="scoreadd.do">성적 입력하기</a>
-	 <a href="scoreedit.do">성적 수정하기</a>
 </body>
 </html>

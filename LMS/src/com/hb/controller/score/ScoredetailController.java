@@ -22,7 +22,6 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 		ArrayList<ScoreDto> slist = dao.selectOne(idx);
 		req.setAttribute("list", slist);
 		req.getRequestDispatcher("scoredetail.jsp").forward(req, resp);
-		resp.sendRedirect("/lmsindex.do"); //임시 메인화면가기 
 	
 }
 

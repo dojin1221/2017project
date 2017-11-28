@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.hb.model.score.ScoreDao;
 import com.hb.model.score.ScoreDto;
 
-@WebServlet(value="/scoreindex.do")
-public class ScoreController extends HttpServlet{
+@WebServlet(value="/scoresee.do")
+public class ScoreSeeController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -21,7 +21,7 @@ public class ScoreController extends HttpServlet{
 		ScoreDao dao= new ScoreDao();
 		ArrayList<ScoreDto> slist= dao.scoreView();
 		req.setAttribute("list", slist);
-		req.getRequestDispatcher("scoreindex.jsp").forward(req, resp);	
+		req.getRequestDispatcher("scoresee.jsp").forward(req, resp);	
 	}
 }
 	

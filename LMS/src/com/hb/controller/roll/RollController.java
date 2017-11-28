@@ -13,7 +13,7 @@ import com.hb.model.index.IndexDao;
 import com.hb.model.index.IndexDto;
 import com.hb.model.roll.RollDao;
 import com.hb.model.roll.RollDto;
-@WebServlet(value="/rollmgr.do")
+@WebServlet(value="/rollindex.do")
 public class RollController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -22,6 +22,6 @@ public class RollController extends HttpServlet{
 		ArrayList<RollDto> rlist= dao.rollView();
 		
 		req.setAttribute("rlist", rlist);
-		req.getRequestDispatcher("roll.jsp").forward(req, resp);	
+		req.getRequestDispatcher("rollindex.jsp").forward(req, resp);	
 	}
 }
