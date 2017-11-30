@@ -8,32 +8,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>점수페이지</h1>
+	<h1>출석페이지</h1>
 		<table border="1">
 		        <tr>
-		         <!--  <th>점수아이디</th>
+		         <!--  <th>출석아이디</th>
 		          
 		          <th>학생아이디</th> -->
 		          <th>학생</th>
-		          <th>과목</th> 
-		          <th>점수</th>
+		          <th>날짜</th> 
+		          <th>출석유무</th>
 		         <!-- <th>교실</th>
 		           -->
 		        </tr>
-		        
-	     <c:forEach items="${slist }" var="sbean">   
-	        <tr>
-	         <!--  <td>${sbean.scoreid }</td>
-	          
-	          <td>${sbean.stuid }</td> -->
-	          <td><a href="scoredetail.do?idx=${sbean.scoreid }">${sbean.stuname }</a></td>
-	          <td>${sbean.subject }</td>
-	           <td>${sbean.score }</td>
+		        <!--  <td>${bean.scoreid }</td>
+	          <td>${bean.stuid }</td> -->
 	          <!--  <td>${sbean.sclass }</td>
-	          <td><input type="text" name="score" id="score" value=${sbean.score }></td>
+	          <td><input type="text" name="status" id="status" value=${bean.status }></td>
 	        </tr> -->
+	     <c:forEach items="${list }" var="bean">   
+	        <tr>
+	          <td><a href="rolldetail.do?idx=${bean.rollid }">${bean.stuname }</a></td>
+	          <td>${bean.calldate }</td>
+	           <td>${bean.status }</td>
 	 	 </c:forEach> 
 		</table>
-		<a href="scoreindex.do">뒤로</a>
 </body>
 </html>

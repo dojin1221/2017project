@@ -34,7 +34,7 @@
 	<a href="scoreedit.do">수정</a>
 	 -->
 	  <a href="scoresee.do">성적 조회하기</a>
-	 <a href="scoreadd.do">성적 입력하기</a>
+	 <a href="scoreselect.do">성적 입력하기</a>
 	 <a href="scoreedit.do">성적 수정하기</a>
 </body>
 </html>

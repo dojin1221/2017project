@@ -14,7 +14,8 @@
 </style>
 <body>
 <h1>detail page</h1>
-<form action="edit.do" method="post">
+ <a href="scoreedit.do">뒤로</a>
+<form action="sedit.do" method="post">
 	<table border="1">
 		<tr>
 	          <th>점수아이디</th>
@@ -38,5 +39,6 @@
 	</table>
  <button>수정</button>
  </form>
+
 </body>
 </html>

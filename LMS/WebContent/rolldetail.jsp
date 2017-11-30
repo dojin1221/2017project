@@ -8,28 +8,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>출결페이지</h1>
+	<form action="redit.do" method="post">
 	<table border="1">
-		
-	        <tr>
-	          <th>출석이름</th>
-	          <th>출석날짜</th>
+		<tr>
+	          <th>출석아이디</th>
+	          <th>날짜</th>
 	          <th>학생아이디</th>
 	          <th>학생이름</th>
 	          <th>교실</th>
 	          <th>출석유무</th>
-	        </tr>
-	        
-     <c:forEach items="${list }" var="bean">   
+	    </tr>
+	    
+	    <c:forEach items="${list }" var="bean">   
         <tr>
-          <td>${bean.rollid }</td>
+          <td><input id="rollid" name="rollid" value="${bean.rollid }"></td>
           <td>${bean.calldate }</td>
           <td>${bean.stuid }</td>
           <td>${bean.stuname }</td>
           <td>${bean.sclass }</td>
-          <td>${bean.status }</td>
+          <td><input type="text" id="status" name="status" value=${bean.status }></td>
         </tr>
  	 </c:forEach> 
 	</table>
+ <button>수정</button>
+ </form>
 </body>
 </html>

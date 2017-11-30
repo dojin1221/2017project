@@ -30,5 +30,6 @@
         </tr>
  	 </c:forEach> 
 	</table>
+	<a href="scoreindex.do">뒤로</a>
 </body>
 </html>

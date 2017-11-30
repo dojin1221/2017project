@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.hb.model.hrmgr.HrmgrDto;
 import com.hb.model.score.ScoreDto;
 import com.hb.util.MyOracle;
 
@@ -47,36 +48,7 @@ public class ScoreDao {
 		return slist;
 	}
 
-	public ArrayList<ScoreDto> scoreView2(){
-		String sql="select * from score";
-		conn=MyOracle.getConnection();
-		try{
-			 pstmt=conn.prepareStatement(sql);
-			rs=pstmt.executeQuery();
-			slist = new ArrayList<ScoreDto>();
-			while(rs.next()){
-				ScoreDto bean= new ScoreDto();
-				bean.setScoreid(rs.getInt("scoreid"));
-				bean.setSubject(rs.getString("subject"));
-				bean.setStuid(rs.getInt("stuid"));
-				bean.setStuname(rs.getString("stuname"));
-				bean.setSclass(rs.getInt("sclass"));
-				bean.setScore(rs.getInt("score"));
-				slist.add(bean);				
-			}			
-		}catch(Exception e){
-		}finally{
-			try {
-				if(rs!=null)rs.close();
-				if(pstmt!=null)pstmt.close();
-				if(conn!=null)conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return slist;
-	}
-	
+
 	public ArrayList<ScoreDto> edit(int score, int scoreid) throws SQLException{
 		String sql="update score set score=? where scoreid=?";
 		conn=MyOracle.getConnection();
@@ -116,9 +88,7 @@ public class ScoreDao {
 		 				slist.add(bean);
 		 			}
 		 			System.out.println(slist.size());
-		 			if(rs!=null)rs.close();
-		 			if(pstmt!=null)pstmt.close();
-		 			
+ 			
 		 		}catch(Exception e){
 		 		}finally{
 		 			try {
@@ -149,10 +119,7 @@ public class ScoreDao {
  				bean.setScore(rs.getInt("score"));
  				slist.add(bean);
  			}
- 			
- 			if(rs!=null)rs.close();
- 			if(pstmt!=null)pstmt.close();
- 			
+ 				
  		}catch(Exception e){
  		}finally{
  			try {
@@ -165,4 +132,90 @@ public class ScoreDao {
  		}
  		return slist;
  	}
+		public ArrayList<ScoreDto> AddView() {
+			conn=MyOracle.getConnection();
+	 		try{
+	 			String sql="select * from (select * from score order by id desc) where rownum <11";
+	 			pstmt=conn.prepareStatement(sql);
+	 			rs=pstmt.executeQuery();
+	 			
+	 			while(rs.next()){
+	 				ScoreDto bean = new ScoreDto();
+	 				bean.setScoreid(rs.getInt("scoreid"));
+	 				bean.setSubject(rs.getString("subject"));
+	 				bean.setStuid(rs.getInt("stuid"));
+	 				bean.setStuname(rs.getString("stuname"));
+	 				bean.setSclass(rs.getInt("sclass"));
+	 				bean.setScore(rs.getInt("score"));
+	 				slist.add(bean);
+	 			}
+
+	 		}catch(Exception e){
+	 		}finally{
+	 			try {
+	 				if(rs!=null)rs.close();
+	 				if(pstmt!=null)pstmt.close();
+	 				if(conn!=null)conn.close();
+	 			} catch (SQLException e) {
+	 				e.printStackTrace();
+	 			}
+	 		}
+			return slist;
+		}
+		
+		public ArrayList<ScoreDto> classView() {
+			conn=MyOracle.getConnection();
+			ArrayList<ScoreDto> list=null;
+	 		try{
+	 			String sql="select sclass from score group by sclass having count(sclass)>0";
+	 			pstmt=conn.prepareStatement(sql);
+	 			rs=pstmt.executeQuery();
+	 			list = new ArrayList<ScoreDto>();
+	 			while(rs.next()){
+	 
+	 				ScoreDto bean = new ScoreDto();	 				
+	 				bean.setSclass(rs.getInt("sclass"));	 				
+	 				list.add(bean);		
+	 			}
+	 			
+	 		}catch(Exception e){
+	 		}finally{
+	 			try {
+	 				if(rs!=null)rs.close();
+	 				if(pstmt!=null)pstmt.close();
+	 				if(conn!=null)conn.close();
+	 			} catch (SQLException e) {
+	 				e.printStackTrace();
+	 			}
+	 		}
+			return list;
+		}
+		public ArrayList<ScoreDto> insertView() {
+			conn=MyOracle.getConnection();
+			ArrayList<ScoreDto> list=null;
+	 		try{
+	 			String sql="select sclass from score group by sclass having count(sclass)>0";
+	 			pstmt=conn.prepareStatement(sql);
+	 			rs=pstmt.executeQuery();
+	 			list = new ArrayList<ScoreDto>();
+	 			while(rs.next()){
+	 
+	 				ScoreDto bean = new ScoreDto();	 				
+	 				bean.setSclass(rs.getInt("sclass"));	 				
+	 				list.add(bean);		
+	 			}
+	 			
+	 		}catch(Exception e){
+	 		}finally{
+	 			try {
+	 				if(rs!=null)rs.close();
+	 				if(pstmt!=null)pstmt.close();
+	 				if(conn!=null)conn.close();
+	 			} catch (SQLException e) {
+	 				e.printStackTrace();
+	 			}
+	 		}
+			return list;
+		}
+		
 }
