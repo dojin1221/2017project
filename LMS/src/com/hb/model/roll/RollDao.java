@@ -135,5 +135,95 @@ public class RollDao {
  		}
  		return rlist;
  	}
+		public ArrayList<RollDto> classView() {
+			conn=MyOracle.getConnection();
+			ArrayList<RollDto> list=null;
+	 		try{
+	 			String sql="select sclass from roll group by sclass having count(sclass)>0";
+	 			pstmt=conn.prepareStatement(sql);
+	 			rs=pstmt.executeQuery();
+	 			list = new ArrayList<RollDto>();
+	 			while(rs.next()){
+	 
+	 				RollDto bean = new RollDto();	 				
+	 				bean.setSclass(rs.getInt("sclass"));	 				
+	 				list.add(bean);		
+	 			}
+	 			
+	 		}catch(Exception e){
+	 		}finally{
+	 			try {
+	 				if(rs!=null)rs.close();
+	 				if(pstmt!=null)pstmt.close();
+	 				if(conn!=null)conn.close();
+	 			} catch (SQLException e) {
+	 				e.printStackTrace();
+	 			}
+	 		}
+			return list;
+		}
+		public ArrayList<RollDto> classView2(int idx) {
+			conn=MyOracle.getConnection();
+			ArrayList<RollDto> list=null;
+	 		try{
+//	 			String sql="select distinct stuid,stuname,sclass from roll where sclass=?";
+	 			String sql="select * from stu where regclass=?";
+	 			pstmt=conn.prepareStatement(sql);
+	 			pstmt.setInt(1, idx);
+	 			
+	 			rs=pstmt.executeQuery();
+	 			
+	 			list = new ArrayList<RollDto>();
+	 			while(rs.next()){
+	 				RollDto bean = new RollDto();	 				
+	 				
+					bean.setStuid(rs.getInt("sid"));
+					bean.setStuname(rs.getString("sname"));
+					bean.setSclass(rs.getInt("regclass"));
+	 				list.add(bean);		
+	 			}
+	 			
+	 		}catch(Exception e){
+	 		}finally{
+	 			try {
+	 				if(rs!=null)rs.close();
+	 				if(pstmt!=null)pstmt.close();
+	 				if(conn!=null)conn.close();
+	 			} catch (SQLException e) {
+	 				e.printStackTrace();
+	 			}
+	 		}
+			return list;
+		}
+		public void add(ArrayList<RollDto> stulist) {
+			System.out.println("add¾È :"+ stulist.size());
+			conn=MyOracle.getConnection();
+			//ArrayList<RollDto> list=null;
+			
+			int cnt = stulist.size()-1;
+			String sql="insert into roll(calldate, stuid, status,stuname)";
+			for(int i=0; i<stulist.size()-1; i++){
+				sql +=" select sysdate,"+stulist.get(i).getStuid()+","+"'"+stulist.get(i).getStatus()+"'"+","+"'"+stulist.get(i).getStuname()+"' from DUAL UNION ALL";							
 	
+			}
+				sql+=" select sysdate,"+stulist.get(cnt).getStuid()+","+"'"+stulist.get(cnt).getStatus()+"'"+","+"'"+stulist.get(cnt).getStuname()+"' from DUAL";			
+
+	 		try{
+	 			pstmt=conn.prepareStatement(sql);
+	 			pstmt.executeQuery();
+	 			
+	 			//list = new ArrayList<RollDto>();
+	 			
+	 		}catch(Exception e){
+	 		}finally{
+	 			try {
+	 				if(pstmt!=null)pstmt.close();
+	 				if(conn!=null)conn.close();
+	 			} catch (SQLException e) {
+	 				e.printStackTrace();
+	 			}
+	 		}
+			//return list;
+		}
+		
 }

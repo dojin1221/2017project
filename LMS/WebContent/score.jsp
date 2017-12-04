@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>출석관리INDEX</h1>
+	<h1>성적관리INDEX</h1>
 	
-	<a href="rollsee.do">출석 조회하기</a>
-	<a href="rolladd.do">출석 입력하기</a>
-	<a href="rolledit.do">출석 수정하기</a>
+	<p><a class="a" href="score.do?root=addview">[출석부 입력]</a></p>
+	<p><a class="a" href="score.do?root=editview">[출석부 수정]</a></p>
+	<p><a class="a" href="score.do?root=checkview">[출석부 조회]</a></p>	
 </body>
 </html>

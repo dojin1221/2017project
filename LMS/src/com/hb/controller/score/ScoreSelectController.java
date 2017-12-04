@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.hb.model.score.ScoreDao;
 import com.hb.model.score.ScoreDto;
 
-@WebServlet(value="/scoreselect.do")
+@WebServlet(value="/sscoreselect.do")
 public class ScoreSelectController extends HttpServlet{
 @Override
 protected void doGet(HttpServletRequest req, HttpServletResponse resp)

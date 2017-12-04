@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.hb.model.score.ScoreDao;
 import com.hb.model.score.ScoreDto;
 
-@WebServlet(value="/scoresee.do")
+@WebServlet(value="/sscoresee.do")
 public class ScoreSeeController extends HttpServlet{
 	
 	@Override
