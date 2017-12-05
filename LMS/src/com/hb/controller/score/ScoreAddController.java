@@ -48,7 +48,6 @@ public class ScoreAddController extends HttpServlet{
 		int sclass = Integer.parseInt(regclass);
 		//sclass는 이전 form에서 이름이 학번이 아닌 유일한 인자
 		ArrayList<ScoreDto> newlist = dao.classView2(sclass);
-		
 		for(int i=0; i<newlist.size(); i++){
 			int tempIdx = newlist.get(i).getStuid();
 			int score =  (int) paramMap.get(tempIdx+"");

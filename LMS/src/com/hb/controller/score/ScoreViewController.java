@@ -41,7 +41,7 @@ public class ScoreViewController extends HttpServlet{
 			
 		}
 		
-		req.getRequestDispatcher("roll"+root+".jsp").forward(req, resp);
+		req.getRequestDispatcher("score"+root+".jsp").forward(req, resp);
 		
 	}
 	
